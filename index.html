@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Universe Explorer – interaktív űrfelfedező</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&family=Exo+2:wght@300;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div id="glow"></div>
+<nav><b>UNIVERSE EXPLORER</b><div><a href="#naprendszer">Naprendszer</a><a href="#suly">Súly</a><a href="#iss">ISS</a><a href="#apod">NASA</a></div></nav>
+
+<section class="hero" id="start">
+<div>
+<h1>Fedezd fel a világegyetemet</h1>
+<p>Forgasd a Naprendszert, kövesd élőben a Nemzetközi Űrállomást és nézd meg, mit lát ma a NASA. Kattints bárhová – csillagok robbannak.</p>
+<div id="fact"></div>
+<a class="btn" href="#naprendszer">Indulás</a><button class="btn" id="nova">Szupernóva!</button>
+</div>
+<div class="orbwrap"><div class="orb" id="orb"><i></i></div></div>
+</section>
+
+<section class="rv">
+<div class="stats">
+<div class="glass stat"><strong data-n="2" data-s=" billió">0</strong>galaxis a megfigyelhető világegyetemben</div>
+<div class="glass stat"><strong data-n="13.8" data-d="1" data-s=" milliárd">0</strong>éves a világegyetem</div>
+<div class="glass stat"><strong data-n="299792">0</strong>km/s a fény sebessége</div>
+<div class="glass stat"><strong data-n="6000" data-s="+">0</strong>megerősített exobolygó</div>
+</div>
+</section>
+
+<section id="naprendszer" class="rv">
+<h2>Naprendszer</h2>
+<p class="sub">Kattints egy bolygóra: az adatait élő API-ból töltjük be. A csúszkával gyorsíthatod az időt.</p>
+<div class="solar">
+<div><canvas id="sys"></canvas>
+<div class="ctrl"><button class="btn" id="pause">Szünet</button><label>Sebesség <input type="range" id="spd" min="0" max="10" step=".5" value="2"></label></div></div>
+<div class="glass" id="info"></div>
+</div>
+</section>
+
+<section id="suly" class="rv">
+<h2>Mennyit nyomnál?</h2>
+<p class="sub">Add meg a tömegedet, és nézd meg, mit mutatna a mérleg más égitesteken.</p>
+<div class="glass"><label>Tömeged (kg) <input type="number" id="mass" value="60" min="1" max="300"></label><div id="wlist"></div></div>
+</section>
+
+<section id="iss" class="rv">
+<h2>Nemzetközi Űrállomás – élő pozíció</h2>
+<p class="sub">Az ISS 92 percenként kerüli meg a Földet. <span class="tag off" id="st">kapcsolódás…</span></p>
+<canvas id="issc"></canvas>
+<div class="issdata glass" style="margin-top:14px"><div>Szélesség<b id="la">–</b></div><div>Hosszúság<b id="lo">–</b></div><div>Magasság<b id="al">–</b></div><div>Sebesség<b id="ve">–</b></div></div>
+</section>
+
+<section id="apod" class="rv">
+<h2>A NASA mai képe</h2>
+<p class="sub">Minden napra jut egy csillagászati kép a NASA APOD szolgáltatásából.</p>
+<div class="apod glass"><div id="apimg"></div><div><h3 id="aptitle">Betöltés…</h3><p id="apdesc"></p><button class="btn" id="apnew">Véletlen nap</button><button class="btn" id="aptoday">Mai kép</button><p id="apst" style="margin-top:14px;color:var(--g)"></p></div></div>
+</section>
+
+<footer>Készítette: Gráma Bence és Kovács Eduárd<br><small>Adatok: Solar System OpenData, Where the ISS at?, NASA APOD</small></footer>
+<button id="top" aria-label="Vissza az oldal tetejére">↑</button>
+<script src="script.js"></script>
+</body>
+</html>
